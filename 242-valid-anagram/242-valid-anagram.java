@@ -1,34 +1,65 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        HashMap<Character, Integer>  map = new HashMap<>();
         
-        for(int i=0; i< s.length(); i++){
+        char[] ss = s.toCharArray();
+           char[] st = t.toCharArray();
+        
+        HashMap<Character, Integer> map = new HashMap<>();
+        
+        for(Character ch: ss){
             
-         char   c = s.charAt(i);
-            
-           if(map.containsKey(c)){
-               map.put(c, map.get(c)+1);
-           }else{
-               map.put(c,1);
-           }
+            if(map.containsKey(ch)){
+                map.replace(ch, map.get(ch)+1);
+            }else{
+                map.put(ch, 1);
+            }
             
         }
         
-        for(int i=0; i< t.length(); i++){
-            
-         char   c =  t.charAt(i);
-            
-            if(!map.containsKey(c)) return false;
-            
-            if(map.get(c) == 1) map.remove(c);
-            else  map.put(c, map.get(c)-1);
-            
+        for(Character ch: st){
+            if(!map.containsKey(ch))return false;
+            else{
+                
+                if(map.get(ch) == 1) map.remove(ch);
+                else{
+                    map.replace(ch, map.get(ch) -1);
+                }
+                
+            }
         }
         
-        if(map.size() > 0) return false;
-        
-        return true;
-        
+        if(map.isEmpty())return true;
+        return false;
         
     }
+    
+    /** 
+    
+    anagram  aa n g r m
+    nagaram  aa n g r m
+    
+    rat       r a t   
+    car       r a c
+    
+    
+    a - 2        1 0
+    n - 1        0
+    g - 1        0 
+    r - 1        0
+    m - 1        0
+    
+    map.empty();
+    
+    
+    r a t      
+    c a r
+    
+    r - 1 0
+    a - 1 0
+    t - 1 1
+    
+    !map.empty()
+    
+    **/
+    
 }
