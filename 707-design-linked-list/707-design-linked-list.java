@@ -104,11 +104,12 @@ class MyLinkedList {
                 tail = null;
             } else {
                 head = head.next;
+                 if (length > 2) head.next.pre = head;
             }
             length-=1;
         }else if(index == length-1){
             tail = tail.pre;
-            tail.next = null;
+            if (length > 2) tail.pre.next = tail;
             length-=1;
         }else{
             Node result = getItemByIndex(index);
