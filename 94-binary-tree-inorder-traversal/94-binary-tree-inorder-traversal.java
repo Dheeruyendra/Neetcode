@@ -22,14 +22,12 @@ class Solution {
         
         TreeNode curr = root;
         
-        while(true){
+        while(curr != null || !temp.isEmpty()){
             
-            if(curr != null){
+            while(curr != null){
                 temp.add(curr);
                 curr = curr.left;
-            }else{
-                
-                if(temp.isEmpty())break;
+            }
                 TreeNode t = temp.pop();
                 ans.add(t.val);
                 
@@ -38,7 +36,7 @@ class Solution {
                 
             } 
             
-        }
+        
         
         return ans;
         
