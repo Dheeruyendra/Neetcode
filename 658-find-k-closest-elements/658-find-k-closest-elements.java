@@ -6,7 +6,7 @@ class Solution {
         
           while(r-l+1 >k){
               
-              if(Math.abs(arr[l] - x) <= Math.abs(arr[r] -x)){
+              if(x-arr[l]  <= arr[r] -x){
                   r-=1;
               }else{
                   l+=1;
