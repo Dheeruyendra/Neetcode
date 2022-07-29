@@ -15,6 +15,6 @@ class Solution {
               
           }
         
-        return (l!=letters.length)?letters[l]:letters[0];
+        return letters[l%letters.length];
     }
 }
