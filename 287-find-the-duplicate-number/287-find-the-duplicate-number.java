@@ -4,7 +4,7 @@ class Solution {
         
           for(int num:nums){
               if(temp.contains(num))return num;
-              else temp.add(num);
+                temp.add(num);
           }
         
         return -1;
